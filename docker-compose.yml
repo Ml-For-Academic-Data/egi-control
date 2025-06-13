@@ -28,10 +28,10 @@ services:
       # - PYTHONPATH=/opt/airflow/src
 
     volumes: #Los volumenes de airflow los tiene este repo. /data se busca en el repo control
-      - ../backend/dags:/opt/airflow/dags
-      - ../backend/src:/opt/airflow/src
+      - ../egi-backend/dags:/opt/airflow/dags
+      - ../egi-backend/src:/opt/airflow/src
       - ./data:/opt/airflow/data
-      - ../backend/volumes/airflow:/opt/airflow
+      - ../egi-backend/volumes/airflow:/opt/airflow
     
     ports:
       - "8080:8080"
@@ -51,10 +51,10 @@ services:
     depends_on:
       - airflow
     volumes: #Los volumenes de airflow los tiene este repo. /data se busca en el repo control
-      - ../backend/dags:/opt/airflow/dags
-      - ../backend/src:/opt/airflow/src
+      - ../egi-backend/dags:/opt/airflow/dags
+      - ../egi-backend/src:/opt/airflow/src
       - ./data:/opt/airflow/data
-      - ../backend/volumes/airflow:/opt/airflow
+      - ../egi-backend/volumes/airflow:/opt/airflow
     environment:
       - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
 
@@ -118,7 +118,7 @@ services:
       - "5000:5000"
     volumes:
       - ./data:/opt/airflow/data  # Compartimos los datos con la app
-      - ../frontend/visualization:/app  # Compartimos la app con el contenedor
+      - ../egi-frontend/visualization:/app  # Compartimos la app con el contenedor
 
   # frontend:
   #   build:
