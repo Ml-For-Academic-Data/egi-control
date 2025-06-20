@@ -1,5 +1,3 @@
-version: '3.8'
-
 
 networks:
   internal_network:
@@ -120,17 +118,21 @@ services:
       - ./data:/opt/airflow/data  # Compartimos los datos con la app
       - ../egi-frontend/visualization:/app  # Compartimos la app con el contenedor
 
-  # frontend:
-  #   build:
-  #     context: ../frontend
-  #   container_name: frontend-app
-  #   # ports:
-  #   #   - "3000:3000"
-  #   networks:
-  #     - internal_network
-  #   environment:
-  #   - FLASK_ENV=development
-  #   volumes:
-  #   - ./frontend:/app
-  #   depends_on:
-  #     - keycloak
+  frontend:
+    build:
+      context: ../egi-frontend
+      dockerfile: Dockerfile
+    container_name: egi-frontend
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ../egi-frontend:/app  # Para hot reload en desarrollo
+    ports:
+      - "3000:3000"  # Expuesto para acceso directo
+    networks:
+      - internal_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
