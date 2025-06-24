@@ -1,3 +1,4 @@
+```mermaid
 graph TB
     %% Internet and External Access
     INTERNET["🌐 Internet"]
@@ -138,3 +139,4 @@ graph TB
     class DEV_MYSQL,TEST_MYSQL,PROD_MYSQL,STORAGE storageStyle
     class GITHUB,GHCR externalStyle
     class PROMETHEUS,GRAFANA,LOGS futureStyle
+```
