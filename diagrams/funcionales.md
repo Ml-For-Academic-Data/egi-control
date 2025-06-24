@@ -1,3 +1,4 @@
+```mermaid
 graph TB
     %% External Actors
     DIRECTOR["👨‍💼 Director<br/>(Usuario no técnico)"]
@@ -137,3 +138,4 @@ graph TB
     class SIS,EMAIL,BACKUP externalStyle
     class ETL_FLOW,ML_FLOW,REPORTING_FLOW workflowStyle
     class DESERTION_RULES,SCHOLARSHIP_RULES,PRIVACY_RULES rulesStyle
+```
