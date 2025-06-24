@@ -1,3 +1,4 @@
+```mermaid
 graph TB
     %% Repositorios
     subgraph "Repositorios GitHub"
@@ -121,3 +122,4 @@ graph TB
     class ARGO_DEV,ARGO_TEST,ARGO_PROD argoStyle
     class NS_DEV,NS_TEST,NS_PROD k8sStyle
     class MANUAL_PR manualStyle
+```
